@@ -1,0 +1,86 @@
+﻿<Window x:Class="CyberSecurityChatbotP3.QuizWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CyberBot — Security Quiz"
+        Height="600" Width="750"
+        Background="#0D1117"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header / progress -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="[ CYBERSECURITY QUIZ ]"
+                       Foreground="#00FF9C" FontFamily="Consolas"
+                       FontSize="18" FontWeight="Bold"/>
+            <Grid Margin="0,8,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Height="6" Background="#1C2333"
+                        VerticalAlignment="Center" Margin="0,0,12,0">
+                    <Border x:Name="ProgressFill" HorizontalAlignment="Left"
+                            Height="6" Background="#00FF9C" Width="0"/>
+                </Border>
+                <TextBlock x:Name="TxtProgress" Grid.Column="1"
+                           Text="Q 1 / 12" Foreground="#8B949E"
+                           FontFamily="Consolas" FontSize="12"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Score -->
+        <TextBlock x:Name="TxtScore" Grid.Row="1"
+                   Text="Score: 0 / 12"
+                   Foreground="#58A6FF" FontFamily="Consolas"
+                   FontSize="13" Margin="0,0,0,16"/>
+
+        <!-- Question and options -->
+        <StackPanel Grid.Row="2">
+            <Border Background="#161B22" Padding="16,12" Margin="0,0,0,16">
+                <TextBlock x:Name="TxtQuestion"
+                           Text="Question goes here..."
+                           Foreground="#E6EDF3" FontSize="15"
+                           TextWrapping="Wrap" LineHeight="24"/>
+            </Border>
+            <StackPanel x:Name="OptionsPanel"/>
+        </StackPanel>
+
+        <!-- Feedback panel -->
+        <Border x:Name="FeedbackBorder" Grid.Row="3"
+                Background="#161B22" Padding="14,10"
+                Margin="0,16,0,0" Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock x:Name="TxtFeedbackResult"
+                           Text="Correct!"
+                           FontSize="14" FontWeight="Bold"
+                           FontFamily="Consolas" Margin="0,0,0,6"/>
+                <TextBlock x:Name="TxtFeedbackExplain"
+                           Text=""
+                           Foreground="#8B949E" FontSize="13"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Next button -->
+        <Button x:Name="BtnNext" Grid.Row="4"
+                Content="Next Question ▶"
+                Background="#00FF9C" Foreground="#0D1117"
+                FontWeight="Bold" FontSize="14"
+                Padding="20,10" Margin="0,16,0,0"
+                BorderThickness="0" Cursor="Hand"
+                HorizontalAlignment="Right"
+                Visibility="Collapsed"
+                Click="BtnNext_Click"/>
+
+    </Grid>
+</Window>
